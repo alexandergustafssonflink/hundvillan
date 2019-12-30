@@ -24,12 +24,6 @@
 
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
-                <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/logout.php' ? 'active' : ''; ?>" href="app/users/logout.php">Logout</a>
-            </li>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION['user'])) : ?>
-            <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/myprofile.php' ? 'active' : ''; ?>" href="/myprofile.php">My Profile</a>
             </li>
         <?php endif; ?>
@@ -37,6 +31,12 @@
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/villan.php' ? 'active' : ''; ?>" href="/villan.php">Villan</a>
+            </li>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+                <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/logout.php' ? 'active' : ''; ?>" href="app/users/logout.php">Logout</a>
             </li>
         <?php endif; ?>
 

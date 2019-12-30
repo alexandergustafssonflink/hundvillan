@@ -1,1 +1,10 @@
 /* In this file you can add your custom styles. */
+
+.profileAvatar {
+  width: 200px;
+  border-radius: 100%;
+}
+
+.postImage {
+  width: 200px;
+}

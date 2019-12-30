@@ -1,38 +1,35 @@
 <?php require __DIR__ . '/views/header.php'; ?>
-<?php
-
-$query = $pdo->query("INSERT INTO users ('name') VALUES ('Connysson')");
-
-$statement = $pdo->prepare($query);
-
-$statement->execute();
-
-?>
 
 <?php
 
-// if (isset($_POST['email'], $_POST['name'], $_POST['password'])) {
+if (isset($_POST['email'], $_POST['name'], $_POST['password'])) {
 
-// $name = trim((filter_var($_POST['name'], FILTER_SANITIZE_STRING)));
-// $email = trim((filter_var($_POST['email'], FILTER_SANITIZE_EMAIL)));
-// $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $name = trim((filter_var($_POST['name'], FILTER_SANITIZE_STRING)));
+    $email = trim((filter_var($_POST['email'], FILTER_SANITIZE_EMAIL)));
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-// $sql = "INSERT INTO users ('name', 'email', 'password') VALUES (':name', ':email', ':password')";
+    $sql = 'INSERT INTO users (name, email, password) VALUES (:name, :email, :password)';
 
-// $statement = $pdo->prepare($sql);
+    $statement = $pdo->prepare($sql);
 
-// if (!$statement) {
-// die(var_dump($pdo->errorInfo()));
-// }
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
 
-// $statement->bindParam(':name', $name, PDO::PARAM_STR);
-// $statement->bindParam(':email', $email, PDO::PARAM_STR);
-// $statement->bindParam(':password', $password, PDO::PARAM_STR);
+    $statement->bindParam(':name', $name, PDO::PARAM_STR);
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':password', $password, PDO::PARAM_STR);
 
-// die(var_dump($statement));
+    $statement->execute();
 
-// $statement->execute();
-// }
+
+    $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['user'] = $user;
+    redirect(('/index.php'));
+}
 
 ?>
 
