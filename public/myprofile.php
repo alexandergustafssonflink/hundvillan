@@ -27,11 +27,17 @@ if (isset($_POST['content']) || isset($_FILES['image'])) {
     $content = trim(filter_var($_POST['content'], FILTER_SANITIZE_STRING));
     $image = $_FILES['image'];
 
-    $destination = '/app/uploads/images/';
-    $fileName = $user['id'] . random_int(1, 999999) . '.jpeg';
-    move_uploaded_file($image['tmp_name'], __DIR__ . $destination . $fileName);
-    $avatarUrl = $destination . $fileName;
-    $image['name'] = $fileName;
+    if (!($image['name'] == '')) {
+        $destination = '/app/uploads/images/';
+        $fileName = $user['id'] . random_int(1, 999999) . '.jpeg';
+        move_uploaded_file($image['tmp_name'], __DIR__ . $destination . $fileName);
+        $avatarUrl = $destination . $fileName;
+        $image['name'] = $fileName;
+    } else {
+        $image['name'] = NULL;
+    }
+
+
 
     $sql = 'INSERT INTO posts (content, author_id, date, image) VALUES (:content, :id, :date, :image)';
 
@@ -75,12 +81,28 @@ if (isset($_POST['content']) || isset($_FILES['image'])) {
         <h7><?php echo $post['content']; ?></h7>
         <br>
 
-        <?php if (!($post['image'] === NULL)) : ?>
+        <?php if (!($post['image'] === NULL || $post['image'] === 'EMPTY')) : ?>
 
             <img src="/app/uploads/images/<?php echo $post['image']; ?>" class="postImage" alt="">
 
         <?php endif; ?>
+        <br>
+
+        <?php if ($user['id'] = $post['author_id']) : ?>
+
+            <form action="/app/posts/delete.php?id=<?php echo $post['id']; ?>" method="post">
+                <button>Delete post</button>
+            </form>
+
+            <form action="/app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
+                <button>Edit post</button>
+            </form>
+
+        <?php endif; ?>
+
         <br><br><br>
+
+
 
     <?php endforeach; ?>
 

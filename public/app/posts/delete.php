@@ -2,8 +2,18 @@
 
 declare(strict_types=1);
 
-require __DIR__.'/../autoload.php';
+require __DIR__ . '/../autoload.php';
+
+if (isset($_GET['id'])) {
+    $sql = "DELETE from posts WHERE id = :id";
+    $statement = $pdo->prepare($sql);
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+    $statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+    $statement->execute();
+}
 
 // In this file we delete new posts in the database.
 
-redirect('/');
+redirect('/myprofile.php');

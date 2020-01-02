@@ -5,6 +5,7 @@
 $statement = $pdo->prepare('SELECT * FROM posts');
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$user = $_SESSION['user'];
 
 ?>
 
@@ -19,6 +20,18 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
             <h8><?php echo $post['date']; ?></h8><br>
             <h7><?php echo $post['content']; ?></h7>
             <br><br>
+
+            <?php if ($user['id'] === $post['author_id']) : ?>
+
+                <form action="/app/posts/delete.php?id=<?php echo $post['id']; ?>" method="post">
+                    <button>Delete post</button>
+                </form>
+
+                <form action="/app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
+                    <button>Edit post</button>
+                </form>
+
+            <?php endif; ?>
 
         <?php endforeach; ?>
 

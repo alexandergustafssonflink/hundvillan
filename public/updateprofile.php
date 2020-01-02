@@ -87,7 +87,33 @@ if (isset($_POST['biography'])) {
     redirect('/updateprofile.php');
 }
 
+if (isset($_POST['oldpassword'], $_POST['newpassword'], $_POST['confirmpassword'])) {
+    $oldPassword = $_POST['oldpassword'];
+    $newPassword = $_POST['newpassword'];
+    $confirmPassword = $_POST['confirmpassword'];
+
+    $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+    $statement->execute([
+        ':id' => $_SESSION['user']['id']
+    ]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $storedPassword = $user['password'];
+
+    if (password_verify($oldPassword, $storedPassword) && $newPassword === $confirmPassword) {
+        $changeQuery = $pdo->prepare('UPDATE users SET password = :newpassword WHERE id = :id');
+        $changeQuery->execute([
+            ':newpassword' => password_hash($newPassword, PASSWORD_DEFAULT),
+            ':id' => $user['id']
+        ]);
+        echo "Your password was succesfully updated";
+    } else {
+        echo "no match.";
+    }
+}
+
 ?>
+
 
 <article>
 
@@ -115,7 +141,21 @@ if (isset($_POST['biography'])) {
     </form>
 
 
-</article>
+    <h3>Update password</h3>
+
+    <form action="/updateprofile.php" method="post" enctype="multipart/form-data">
+        <label for="oldpassword">Old password</label>
+        <input name="oldpassword" type="password">
+        <label for="newpassword">New password</label>
+        <input name="newpassword" type="password">
+        <label for="confirmpassword">Confirm new password</label>
+        <input name="confirmpassword" type="password">
+
+        <button type="submit"> Change password breddah. </button>
+    </form>
 
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+
+
+
+    <?php require __DIR__ . '/views/footer.php'; ?>
