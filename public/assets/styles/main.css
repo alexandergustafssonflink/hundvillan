@@ -1,10 +1,265 @@
 /* In this file you can add your custom styles. */
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+}
+
+.logo {
+  color: whitesmoke;
+  font-size: 60px;
+}
+
 .profileAvatar {
   width: 200px;
   border-radius: 100%;
 }
 
 .postImage {
-  width: 200px;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  bottom: 0px;
+  background-color: #36151e;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+}
+.navIcon {
+  width: 60px;
+}
+
+.topmenu {
+  background-color: #36151e;
+  height: 80px;
+}
+
+.main {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.likeButton {
+  border: none;
+  background-color: white;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.commentsButton {
+  background-color: #444554;
+  border: none;
+  color: whitesmoke;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+
+.mainButton {
+  background-color: #444554;
+  border: none;
+  color: whitesmoke;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+
+.postBottomSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.deleteButton {
+  border: none;
+  background-color: white;
+  width: 40px;
+}
+
+.editButton {
+  border: none;
+  background-color: white;
+  width: 40px;
+}
+
+.deleteIcon {
+  width: 30px;
+}
+
+.editIcon {
+  width: 30px;
+}
+
+.register {
+  margin-top: 30px;
+}
+
+.likeImage {
+  width: 40px;
+}
+
+.latestPostText {
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+.post {
+  margin-top: 20px;
+  border-bottom: solid black;
+  padding-bottom: 20px;
+}
+
+.postLikeSection {
+  display: flex;
+  margin-top: 10px;
+}
+
+.postDate {
+  font-size: 12px;
+}
+
+.profileAvatar {
+  border-radius: 100%;
+  border: solid black;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.profileBiography {
+  margin-top: 10px;
+}
+
+.profileEmail {
+  margin-top: 10px;
+}
+
+.settingsIcon {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 40px;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+.postForm {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.postTextArea {
+  width: 100%;
+}
+
+.postUserSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postUserName {
+  font-size: 20px;
+}
+
+.postAvatar {
+  width: 40px;
+}
+
+.formButton {
+  background-color: #444554;
+  border: none;
+  color: whitesmoke;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+
+.mediumButton {
+  background-color: #444554;
+  border: none;
+  color: whitesmoke;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  width: 100px;
+}
+
+.updateBiography {
+  width: 100%;
+}
+
+.updateForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.editBiography {
+  margin-top: 30px;
+}
+
+.editBiography .mediumButton {
+  margin-top: 10px;
+}
+
+.editAvatar {
+  margin-top: 30px;
+}
+
+.editAvatar .formButton {
+  margin-top: 10px;
+}
+
+.editPasswordSection {
+  margin-top: 30px;
+}
+
+.editPasswordSection .formButton {
+  margin-top: 10px;
+}
+
+.editPasswordSection h3 {
+  margin-bottom: 10px;
+}
+
+/* COMMENT SECTION  */
+
+.commentInput {
+  width: 100%;
+  margin-top: 10px;
 }

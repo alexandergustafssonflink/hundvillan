@@ -1,39 +1,113 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
 
-<?php
 
-$statement = $pdo->prepare('SELECT * FROM posts');
+$statement = $pdo->prepare('SELECT posts.*, users.name, users.avatar FROM posts INNER JOIN users ON posts.author_id = users.id ORDER BY date DESC');
+if (!$statement) {
+    die(var_dump($pdo->errorInfo()));
+}
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-$user = $_SESSION['user'];
+
 
 ?>
 
 <article>
-    <h1><?php echo $config['title']; ?></h1>
+    <!-- IF USER IS NOT LOGGED IN, DISPLAY BELOW.  -->
+    <?php if (!(isset($_SESSION['user']))) : ?>
+
+        <article class="main">
+            <h1 class="header">Welcome, dog. </h1>
+            <h3>Log in below</h3>
+
+            <form action="app/users/login.php" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" placeholder="oldDog@email.com" required>
+                </div><!-- /form-group -->
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" required>
+                </div><!-- /form-group -->
+
+                <button class="mainButton" type="submit">Enter</button>
+            </form>
+
+            <h4 class="register">Haven't been here before?</h4>
+            <a href="/register.php"> <button class="mainButton">Well register yourself, puppy</button></a>
+        </article>
+
+    <?php endif;  ?>
+
+
+    <!-- IF USER IS LOGGED IN, DISPLAY BELOW.  -->
     <?php if (isset($_SESSION['user'])) : ?>
-        <h1> Welcome back <?php echo $_SESSION['user']['name']; ?> </h1>
+        <?php $user = $_SESSION['user']; ?>
+        <article class="main">
 
-        <h3> Latest posts </h3>
-        <?php
+
+            <h2> Latest posts </h2>
+
+
+            <?php
             foreach ($posts as $post) : ?>
-            <h8><?php echo $post['date']; ?></h8><br>
-            <h7><?php echo $post['content']; ?></h7>
-            <br><br>
+                <div class="post">
+                    <div class="postUserSection">
+                        <h7 class="postUserName"> <?php echo $post['name']; ?></h7>
+                        <img src="/app/uploads/avatars/<?php echo $post['avatar']; ?>" class="postAvatar" alt="">
 
-            <?php if ($user['id'] === $post['author_id']) : ?>
+                    </div>
+                    <h8 class="postDate">Posted: <?php echo $post['date']; ?></h8> <br>
 
-                <form action="/app/posts/delete.php?id=<?php echo $post['id']; ?>" method="post">
-                    <button>Delete post</button>
-                </form>
+                    <?php if (!($post['image'] === NULL || $post['image'] === 'EMPTY')) : ?>
 
-                <form action="/app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
-                    <button>Edit post</button>
-                </form>
+                        <img src="/app/uploads/images/<?php echo $post['image']; ?>" class="postImage" alt="">
 
-            <?php endif; ?>
+                    <?php endif; ?>
 
-        <?php endforeach; ?>
+                    <h7 class="postContent"><?php echo $post['content']; ?></h7>
+                    <div class="postLikeSection">
+                        <form method="post" action="app/posts/likes.php">
+
+
+                            <input name="postId" type="hidden" value="<?php echo $post['id']; ?>">
+                            <?php if (hasBeenLiked($user['id'], $post['id'], $pdo)) : ?>
+
+                                <button class="likeButton" type="submit"> <img src="/assets/images/redlike.png" class="likeImage" alt=""> </button>
+
+                            <?php else : ?>
+
+                                <button class="likeButton" type="submit"> <img src="/assets/images/bluelike.png" class="likeImage" alt=""> </button>
+
+                            <?php endif; ?>
+                        </form>
+
+                        <?php echo getAmountOfLikes($post['id'], $pdo) . ' has voffed this post';  ?>
+
+                    </div>
+
+                    <form action="/post.php?id=<?php echo $post['id']; ?>" method="post">
+                        <button class="commentsButton">Comments</button>
+                    </form>
+
+
+                    <?php if ($user['id'] === $post['author_id']) : ?>
+                        <div class="postBottomSection">
+                            <form action="/app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
+                                <button class="editButton"><img class="editIcon" src="/assets/images/editicon.svg" alt="Edit"></button>
+                            </form>
+                            <form action="/app/posts/delete.php?id=<?php echo $post['id']; ?>" method="post">
+                                <button class="deleteButton"><img class="deleteIcon" src="/assets/images/deleteicon.svg" alt="Delete"></button>
+                            </form>
+                        </div>
+
+
+
+                    <?php endif; ?>
+                </div>
+
+            <?php endforeach; ?>
+        </article>
 
     <?php endif; ?>
 

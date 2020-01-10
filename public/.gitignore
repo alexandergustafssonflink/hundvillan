@@ -1,3 +1,6 @@
 .vscode
 .DS_Store
-/uploads
+app/uploads/avatar/*
+app/uploads/images/*
+!app/uploads/avatar/.gitkeep
+!app/uploads/images/.gitkeep
