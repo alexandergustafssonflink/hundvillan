@@ -101,7 +101,7 @@ $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <?php if ($user['id'] === $post['author_id']) : ?>
                 <div class="postBottomSection">
-                    <form action="/app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
+                    <form action="/editpost.php?id=<?php echo $post['id']; ?>" method="post">
                         <button class="editButton"><img class="editIcon" src="/assets/images/editicon.svg" alt="Edit"></button>
                     </form>
                     <form action="/app/posts/delete.php?id=<?php echo $post['id']; ?>" method="post">
