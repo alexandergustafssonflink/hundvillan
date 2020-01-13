@@ -19,6 +19,12 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="header">Welcome, dog. </h1>
             <h3>Log in below</h3>
 
+            <?php if (isset($_SESSION['error'])) : ?>
+                <h1 class="error"> <?php echo $_SESSION['error']; ?> </h1>
+
+            <?php endif; ?>
+
+
             <form action="app/users/login.php" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
