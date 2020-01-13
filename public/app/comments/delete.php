@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
     $statement->execute();
     $comment = $statement->fetch();
 
-
+    // DELETES COMMENT
     $sql = "DELETE from post_comments WHERE id = :id";
     $statement = $pdo->prepare($sql);
     if (!$statement) {

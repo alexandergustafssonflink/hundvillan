@@ -46,6 +46,7 @@ $id = $user['id'];
 
     <!-- UPDATE AVATAR SECTION -->
     <div class="editPasswordSection">
+
         <h3>Update password</h3>
 
         <form action="/app/users/updateprofile.php" method="post" enctype="multipart/form-data">
@@ -55,7 +56,6 @@ $id = $user['id'];
             <input name="newpassword" type="password"><br>
             <label for="confirmpassword">Confirm new password</label>
             <input name="confirmpassword" type="password">
-
             <button class="formButton" type="submit"> Change password, doggy</button>
         </form>
     </div>

@@ -16,8 +16,16 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
-
+/**
+ * Function that checks if a post has been liked. 
+ *
+ * @param integer $userId
+ * @param integer $postId
+ * @param pdo $pdo
+ * @return boolean
+ */
 function hasBeenLiked($userId, $postId, $pdo)
+
 {
     $sql = "SELECT * FROM post_likes WHERE post_id = :post_id AND user_id = :user_id";
     $statement = $pdo->prepare($sql);
@@ -39,7 +47,13 @@ function hasBeenLiked($userId, $postId, $pdo)
     }
 }
 
-
+/**
+ * Function that fetches amount of likes
+ *
+ * @param integer $postId
+ * @param pdo $pdo
+ * @return void
+ */
 function getAmountOfLikes($postId, $pdo)
 {
     $sql = "SELECT COUNT(user_id) FROM post_likes WHERE post_id = :post_id";

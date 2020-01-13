@@ -1,4 +1,4 @@
-/* In this file you can add your custom styles. */
+/* OVER ALL SETTINGS */
 
 * {
     margin: 0;
@@ -9,37 +9,8 @@ body {
     font-family: "Dosis", sans-serif;
 }
 
-.logo {
-    color: whitesmoke;
-    font-size: 60px;
-}
-
-.profileAvatar {
-    width: 200px;
-    border-radius: 100%;
-}
-
-.postImage {
-    width: 100%;
-}
-
-.navbar {
-    display: flex;
-    position: fixed;
-    justify-content: space-around;
-    bottom: 0px;
-    background-color: #36151e;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-}
-.navIcon {
-    width: 60px;
-}
-
-.topmenu {
-    background-color: #36151e;
-    height: 80px;
+.register {
+    margin-top: 30px;
 }
 
 .main {
@@ -60,14 +31,7 @@ body {
     margin-bottom: 10px;
 }
 
-.likeButton {
-    border: none;
-    background-color: white;
-    width: 40px;
-    margin-right: 10px;
-}
-
-.commentsButton {
+.mainButton {
     background-color: #444554;
     border: none;
     color: whitesmoke;
@@ -78,7 +42,7 @@ body {
     width: 100%;
 }
 
-.mainButton {
+.formButton {
     background-color: #444554;
     border: none;
     color: whitesmoke;
@@ -86,6 +50,103 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 16px;
+    width: 100%;
+}
+
+.mediumButton {
+    background-color: #444554;
+    border: none;
+    color: whitesmoke;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+}
+
+/* NAVBAR */
+.logo {
+    color: whitesmoke;
+    font-size: 60px;
+    margin-left: 10px;
+}
+.navbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-around;
+    bottom: 0px;
+    background-color: #36151e;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+}
+.navIcon {
+    width: 60px;
+}
+
+.topmenu {
+    background-color: #36151e;
+    height: 80px;
+}
+
+/* PROFILE PAGE  */
+.profileAvatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.profileAvatarFrame {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.latestPostText {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.profileAvatar {
+    border-radius: 100%;
+    border: solid black;
+}
+
+.profileSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.profileSection h2 {
+    margin-bottom: 10px;
+}
+
+.profileBiography {
+    margin-top: 10px;
+}
+
+.profileEmail {
+    margin-top: 10px;
+}
+
+.settingsIcon {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 40px;
+}
+
+/* POST */
+.post {
+    margin-top: 20px;
+    border-bottom: solid black;
+    padding-bottom: 20px;
+}
+
+.postImage {
     width: 100%;
 }
 
@@ -115,23 +176,26 @@ body {
     width: 30px;
 }
 
-.register {
-    margin-top: 30px;
-}
-
 .likeImage {
     width: 40px;
 }
 
-.latestPostText {
-    margin-top: 50px;
-    font-size: 25px;
+.likeButton {
+    border: none;
+    background-color: white;
+    width: 40px;
+    margin-right: 10px;
 }
 
-.post {
-    margin-top: 20px;
-    border-bottom: solid black;
-    padding-bottom: 20px;
+.commentsButton {
+    background-color: #444554;
+    border: none;
+    color: whitesmoke;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
 }
 
 .postLikeSection {
@@ -141,46 +205,6 @@ body {
 
 .postDate {
     font-size: 12px;
-}
-
-.profileAvatar {
-    border-radius: 100%;
-    border: solid black;
-}
-
-.profileSection {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px;
-}
-
-.profileBiography {
-    margin-top: 10px;
-}
-
-.profileEmail {
-    margin-top: 10px;
-}
-
-.settingsIcon {
-    position: absolute;
-    top: 100px;
-    right: 30px;
-    width: 40px;
-}
-
-.logo {
-    margin-left: 10px;
-}
-
-.postForm {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.postTextArea {
-    width: 100%;
 }
 
 .postUserSection {
@@ -205,28 +229,16 @@ body {
     border-radius: 100%;
 }
 
-.formButton {
-    background-color: #444554;
-    border: none;
-    color: whitesmoke;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
+.postForm {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.postTextArea {
     width: 100%;
 }
 
-.mediumButton {
-    background-color: #444554;
-    border: none;
-    color: whitesmoke;
-    padding: 10px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    width: 100px;
-}
-
+/* EDIT PROFILE */
 .updateBiography {
     width: 100%;
 }
@@ -292,4 +304,33 @@ body {
 .commentHeader {
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+@media only screen and (min-width: 800px) {
+    .main {
+        margin-top: 30px;
+        margin-left: 300px;
+        margin-right: 300px;
+        padding: 50px;
+        border: solid black;
+    }
+
+    .logo {
+        margin-left: 300px;
+    }
+
+    .commentsButton {
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    .settingsIcon {
+        position: absolute;
+        top: 200px;
+        right: 350px;
+        width: 40px;
+    }
+    .postContent {
+        font-size: 20px;
+    }
 }

@@ -29,12 +29,12 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control" type="email" name="email" placeholder="oldDog@email.com" required>
-                </div><!-- /form-group -->
+                </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input class="form-control" type="password" name="password" required>
-                </div><!-- /form-group -->
+                </div>
 
                 <button class="mainButton" type="submit">Enter</button>
             </form>
@@ -51,9 +51,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
         <?php $user = $_SESSION['user']; ?>
         <article class="main">
 
-
             <h2> Latest posts </h2>
-
 
             <?php
             foreach ($posts as $post) : ?>
@@ -61,41 +59,33 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <div class="postUserSection">
                         <h7 class="postUserName"> <?php echo $post['name']; ?></h7>
                         <img src="/app/uploads/avatars/<?php echo $post['avatar']; ?>" class="postAvatar" alt="">
-
                     </div>
+
                     <h8 class="postDate">Posted: <?php echo $post['date']; ?></h8> <br>
 
                     <?php if (!($post['image'] === NULL || $post['image'] === 'EMPTY')) : ?>
-
                         <img src="/app/uploads/images/<?php echo $post['image']; ?>" class="postImage" alt="">
-
                     <?php endif; ?>
 
                     <h7 class="postContent"><?php echo $post['content']; ?></h7>
+
                     <div class="postLikeSection">
                         <form method="post" action="app/posts/likes.php">
-
-
                             <input name="postId" type="hidden" value="<?php echo $post['id']; ?>">
+
                             <?php if (hasBeenLiked($user['id'], $post['id'], $pdo)) : ?>
-
                                 <button class="likeButton" type="submit"> <img src="/assets/images/redlike.png" class="likeImage" alt=""> </button>
-
                             <?php else : ?>
-
                                 <button class="likeButton" type="submit"> <img src="/assets/images/bluelike.png" class="likeImage" alt=""> </button>
-
                             <?php endif; ?>
                         </form>
 
                         <?php echo getAmountOfLikes($post['id'], $pdo) . ' has voffed this post';  ?>
-
                     </div>
 
                     <form action="/post.php?id=<?php echo $post['id']; ?>" method="post">
                         <button class="commentsButton">Comments</button>
                     </form>
-
 
                     <?php if ($user['id'] === $post['author_id']) : ?>
                         <div class="postBottomSection">
@@ -106,21 +96,11 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <button class="deleteButton"><img class="deleteIcon" src="/assets/images/deleteicon.svg" alt="Delete"></button>
                             </form>
                         </div>
-
-
-
                     <?php endif; ?>
                 </div>
-
             <?php endforeach; ?>
         </article>
-
     <?php endif; ?>
-
 </article>
-
-
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

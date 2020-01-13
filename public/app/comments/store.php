@@ -22,7 +22,6 @@ if (isset($_POST['content']) || isset($_FILES['image'])) {
         $image['name'] = NULL;
     }
 
-
     $sql = 'INSERT INTO post_comments (post_id, content, user_id, date, image) VALUES (:postId, :content, :id, :date, :image)';
 
     $statement = $pdo->prepare($sql);

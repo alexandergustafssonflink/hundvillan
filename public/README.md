@@ -27,8 +27,6 @@ Assignment in programming class @ Yrgo.
 
 ## Tested by
 
-## -
-
--
+-   Andreas Lindberg
 
 ## Code Review

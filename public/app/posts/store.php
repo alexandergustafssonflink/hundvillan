@@ -23,14 +23,12 @@ if (isset($_POST['content']) || isset($_FILES['image'])) {
         $image['name'] = NULL;
     }
 
-
     $sql = 'INSERT INTO posts (content, author_id, date, image) VALUES (:content, :id, :date, :image)';
 
     $statement = $pdo->prepare($sql);
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
-
     $statement->bindParam(':content', $content, PDO::PARAM_STR);
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->bindParam(':date', $date, PDO::PARAM_STR);

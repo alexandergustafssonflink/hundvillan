@@ -14,6 +14,4 @@ if (isset($_GET['id'])) {
     $statement->execute();
 }
 
-// In this file we delete new posts in the database.
-
 redirect('/myprofile.php');
