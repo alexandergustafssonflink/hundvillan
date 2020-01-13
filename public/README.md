@@ -16,7 +16,7 @@ Assignment in programming class @ Yrgo.
 
 ### Create an Instagram clone using PHP, HTML, CSS & JavaScript.
 
--   As a user I should be able to create an account, sign in, sign out, create new posts, edit posts, delete posts, edit account details, add an avatar, like and dislike posts.
+-   As a user I should be able to create an account, sign in, sign out, create new posts, edit posts, delete posts, edit account details, add an avatar, like and dislike posts, add, edit and delete comments.
 
 ## Install
 
@@ -27,8 +27,8 @@ Assignment in programming class @ Yrgo.
 
 ## Tested by
 
--
--
+## -
+
 -
 
 ## Code Review

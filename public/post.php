@@ -149,8 +149,7 @@ if (isset($_GET['id'])) : ?>
 
     <form action="/app/comments/store.php?id=<?php echo $post['id']; ?>" method="post" enctype="multipart/form-data">
         <label for="content"></label>
-        <textarea class="commentInput" name="content" cols="30" rows="3" placeholder="Care to add something, dawg?">
-    </textarea>
+        <textarea class="commentInput" name="content" cols="30" rows="3" placeholder="Care to add something, dawg?"></textarea>
         <button class="commentsButton" type="submit">Comment</button>
 
     </form>
