@@ -8,6 +8,10 @@ $id = $user['id'];
 <article class="main">
     <h1> Settings </h1>
 
+    <?php if (isset($_SESSION['message'])) : ?>
+        <h3 class="updateProfileMessage"><?php echo $_SESSION['message']; ?></h3>
+        <?php unset($_SESSION['message']); ?>
+    <?php endif; ?>
     <!-- UPDATE NAME SECTION -->
     <form action="app/users/updateprofile.php" method="post">
         <div class="updateForm">
@@ -44,7 +48,7 @@ $id = $user['id'];
         <button class="formButton" type="submit"> Change your avatar </button>
     </form>
 
-    <!-- UPDATE AVATAR SECTION -->
+    <!-- UPDATE PASSWORD SECTION -->
     <div class="editPasswordSection">
 
         <h3>Update password</h3>

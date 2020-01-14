@@ -20,6 +20,7 @@ if (isset($_POST['name'])) {
         ':id' => $_SESSION['user']['id']
     ]);
     $user['name'] = $name;
+    $_SESSION['message'] = "Your name has been updated. WOFF!";
 
     redirect('/updateprofile.php');
 }
@@ -33,32 +34,9 @@ if (isset($_POST['email'])) {
         ':id' => $_SESSION['user']['id']
     ]);
     $user['email'] = $email;
+    $_SESSION['message'] = "Your email has been updated. WOFF!";
     redirect('/updateprofile.php');
 }
-
-// if (isset($_FILES['avatar'])) {
-//     $avatar = $_FILES['avatar'];
-
-//     $destination = '/../uploads/avatars/';
-//     move_uploaded_file($avatar['tmp_name'], __DIR__ . $destination . $user['id'] . '.jpg');
-//     $avatarName = random_int(1, 999999) . '.jpeg';
-//     $avatarUrl = $destination . $user['id'] . '.jpg';
-
-//     $sql = 'UPDATE users SET avatar_url = :avatarUrl WHERE id = :userId';
-
-//     $statement = $pdo->prepare($sql);
-
-//     if (!$statement) {
-//         die(var_dump($pdo->errorInfo()));
-//     }
-//     $statement->bindParam(':avatarUrl', $avatarUrl, PDO::PARAM_STR);
-//     $statement->bindParam(':userId', $user['id'], PDO::PARAM_INT);
-
-//     $statement->execute();
-
-//     $user['avatar'] = $avatarUrl;
-//     redirect('/updateprofile.php');
-// }
 
 if (isset($_FILES['avatar'])) {
     $avatar = $_FILES['avatar'];
@@ -82,6 +60,7 @@ if (isset($_FILES['avatar'])) {
     $statement->execute();
 
     $user['avatar'] = $avatarName;
+    $_SESSION['message'] = "Your avatar has been updated. WOFF!";
     redirect('/updateprofile.php');
 }
 
@@ -102,6 +81,8 @@ if (isset($_POST['biography'])) {
         ':biography' => $biography,
         ':id' => $_SESSION['user']['id']
     ]);
+
+    $_SESSION['message'] = "Your biography has been updated. WOFF!";
 
     redirect('/updateprofile.php');
 }
@@ -125,9 +106,9 @@ if (isset($_POST['oldpassword'], $_POST['newpassword'], $_POST['confirmpassword'
             ':newpassword' => password_hash($newPassword, PASSWORD_DEFAULT),
             ':id' => $user['id']
         ]);
-        echo "Your password was succesfully updated";
+        $_SESSION['message'] = "Your password was successfully updated!";
     } else {
-        echo "no match.";
+        $_SESSION['message'] = "Sorry, didn't work. Try again dawg.";
     }
     redirect('/updateprofile.php');
 }

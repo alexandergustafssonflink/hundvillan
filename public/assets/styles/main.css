@@ -139,6 +139,11 @@ body {
     width: 40px;
 }
 
+.updateProfileMessage {
+    background: #444554;
+    color: whitesmoke;
+}
+
 /* POST */
 .post {
     margin-top: 20px;
