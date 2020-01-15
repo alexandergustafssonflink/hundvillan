@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../views/header.php';
 
-if (isset($_POST['email'], $_POST['name'], $_POST['password'])) {
+if (isset($_POST['email'], $_POST['name'], $_POST['password'], $_POST['confirmpassword'])) {
 
     $name = trim((filter_var($_POST['name'], FILTER_SANITIZE_STRING)));
     $email = trim((filter_var($_POST['email'], FILTER_SANITIZE_EMAIL)));
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $confirmpassword = password_hash($_POST['confirmpassword'], PASSWORD_DEFAULT);
     $defaultAvatar = 'bulldogavatar.png';
+
+    // CHECK IF PASSWORDS MATCH
+    if ($confirmpassword !== $password) {
+        $_SESSION['error'] = "Oh noes. Your passwords do not match! Ruff times.";
+        redirect('/register.php');
+    }
 
 
     // CHECK IF EMAIL EXISTS

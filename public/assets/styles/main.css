@@ -54,6 +54,10 @@ body {
     width: 100%;
 }
 
+.error {
+    padding: 5px;
+}
+
 .mediumButton {
     background-color: #444554;
     border: none;

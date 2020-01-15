@@ -20,6 +20,11 @@
         </div>
 
         <div class="form-group">
+            <label for="password">Enter your password again</label>
+            <input type="password" name="confirmpassword" id="confirmpassword">
+        </div>
+
+        <div class="form-group">
             <label for="name">Your name please</label>
             <input type="text" name="name" id="name">
         </div>
