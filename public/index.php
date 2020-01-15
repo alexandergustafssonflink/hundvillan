@@ -21,6 +21,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <?php if (isset($_SESSION['error'])) : ?>
                 <h1 class="error"> <?php echo $_SESSION['error']; ?> </h1>
+                <?php unset($_SESSION['error']); ?>
 
             <?php endif; ?>
 

@@ -36,34 +36,13 @@ if (isset($_GET['id'])) : ?>
 
     </div>
 
-    <!-- <?php if (!($post['image'] === NULL || $post['image'] === 'EMPTY')) : ?>
 
-        <img src="/app/uploads/images/<?php echo $post['image']; ?>" class="postImage" alt="">
-
-        <form action="app/posts/update.php?id=<?php echo $post['id']; ?>" method="post">
-            <input type="hidden" name="deleteImage">
-            <button>Delete image</button>
-
-        </form>
-
-    <?php else : ?> -->
-
-    <!-- <form action="app/posts/update.php?id=<?php echo $comment['id']; ?>" method="post" enctype="multipart/form-data">
-        <label for="image">Post an image dawg?</label>
-        <input type="file" name="image"><br>
-        <button class="mediumButton" type="submit">Post image</button>
-    </form> -->
-
-<?php endif; ?>
-
-
-
-<form action="app/comments/update.php?id=<?php echo $comment['id']; ?>" method="post">
-    <label for="content"></label><br>
-    <textarea class="editPostText" name="content" cols="30" rows="5"><?php echo $comment['content']; ?></textarea><br>
-    <button class="mediumButton" type="submit">Update</button>
-</form>
-<br><br><br><br><br><br>
+    <form action="app/comments/update.php?id=<?php echo $comment['id']; ?>" method="post">
+        <label for="content"></label><br>
+        <textarea class="editPostText" name="content" cols="30" rows="5"><?php echo $comment['content']; ?></textarea><br>
+        <button class="mediumButton" type="submit">Update</button>
+    </form>
+    <br><br><br><br><br><br>
 
 
 

@@ -5,6 +5,7 @@
 
     <?php if (isset($_SESSION['error'])) : ?>
         <h1 class="error"> <?php echo $_SESSION['error']; ?> </h1>
+        <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
 
     <form action="app/users/register.php" method="post" enctype="multipart/form-data">
