@@ -22,7 +22,7 @@ Assignment in programming class @ Yrgo.
 
 -   Clone repository.
 -   Go into the public-folder using your terminal and use the following command to start a server.
--   `php -S localhost:1337`
+    `php -S localhost:1337`
 -   Open your browser and go to localhost:1337
 
 ## Tested by
