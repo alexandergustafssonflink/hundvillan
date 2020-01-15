@@ -27,6 +27,8 @@ Assignment in programming class @ Yrgo.
 
 ## Tested by
 
--   Andreas Lindberg
+[Andreas Lindberg](https://github.com/oaflindberg)
+[Maja Alin](https://github.com/majaalin)
+[Mikeala Lundsgård](https://github.com/mikaelaalu)
 
 ## Code Review
