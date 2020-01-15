@@ -81,7 +81,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <?php endif; ?>
                         </form>
 
-                        <?php echo getAmountOfLikes($post['id'], $pdo) . ' has voffed this post';  ?>
+                        <?php echo getAmountOfLikes($post['id'], $pdo) . ' has thrown a bone to this post';  ?>
                     </div>
 
                     <form action="/post.php?id=<?php echo $post['id']; ?>" method="post">

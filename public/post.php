@@ -55,7 +55,7 @@ if (isset($_GET['id'])) : ?>
                 <?php endif; ?>
             </form>
 
-            <?php echo getAmountOfLikes($post['id'], $pdo) . ' has voffed this post';  ?>
+            <?php echo getAmountOfLikes($post['id'], $pdo) . ' has thrown a bone to this post';  ?>
         </div>
 
         <?php if ($user['id'] === $post['author_id']) : ?>
