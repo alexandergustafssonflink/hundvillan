@@ -1,4 +1,4 @@
-# Hundvillan (Sort of a facebook-clone for dogs)
+# Hundvillan (A social media for dogs)
 
 Assignment in programming class @ Yrgo.
 
