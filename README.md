@@ -41,8 +41,9 @@ by [Maja Alin](https://github.com/majaalin)
 
 -   Don’t forget “declare(strict_types=1);” in updateprofile.php
 
--   It might be easier to find in the css file if it was split into more files
-    Good comments! But maybe you could have had some more to make it even clearer.
+-   It might be easier to find in the css file if it was split into more files.
+
+-   Good comments! But maybe you could have had some more to make it even clearer.
 
 -   Great that you are consistent and use the Camel case when naming the classes. I just saw “form-group”, maybe you should do the same there.
 
