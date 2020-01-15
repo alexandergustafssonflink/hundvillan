@@ -1,4 +1,7 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php
+
+declare(strict_types=1);
+require __DIR__ . '/views/header.php'; ?>
 
 <article class="main">
     <h1 class="header">Register as a user, puppy. </h1>
