@@ -71,7 +71,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <h7 class="postContent"><?php echo $post['content']; ?></h7>
 
                     <div class="postLikeSection">
-                        <form method="post" action="app/posts/likes.php">
+                        <form method="post" class="likeForm" action="app/posts/likes.php">
                             <input name="postId" type="hidden" value="<?php echo $post['id']; ?>">
 
                             <?php if (hasBeenLiked($user['id'], $post['id'], $pdo)) : ?>
