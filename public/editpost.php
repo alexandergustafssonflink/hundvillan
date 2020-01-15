@@ -64,14 +64,6 @@ if (isset($_GET['id'])) : ?>
         <textarea class="editPostText" name="content" cols="30" rows="5"><?php echo $post['content']; ?></textarea><br>
         <button class="mediumButton" type="submit">Update</button>
     </form>
-    <br><br><br><br><br><br>
-
-
-
-
-
-
-
 </article>
 
 
