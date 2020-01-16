@@ -9,6 +9,11 @@ body {
     font-family: "Dosis", sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 .register {
     margin-top: 30px;
 }
@@ -315,6 +320,33 @@ body {
 .commentHeader {
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+/* Search section */
+
+.search {
+    margin: auto;
+    padding: 14px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.searchResults {
+    width: 100%;
+}
+
+.searchResults img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.searchResult {
+    display: flex;
+    align-items: center;
+    margin: 14px 0;
+    justify-content: space-between;
 }
 
 @media only screen and (min-width: 800px) {
