@@ -35,11 +35,11 @@ Assignment in programming class @ Yrgo.
 
 by [Maja Alin](https://github.com/majaalin)
 
--   Delete empty file “updatepassword.php”
+-   Delete empty file “updatepassword.php”.
 
--   Don’t forget “declare(strict_types=1);” in register.php
+-   Don’t forget “declare(strict_types=1);” in register.php.
 
--   Don’t forget “declare(strict_types=1);” in updateprofile.php
+-   Don’t forget “declare(strict_types=1);” in updateprofile.php.
 
 -   It might be easier to find in the css file if it was split into more files.
 
