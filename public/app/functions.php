@@ -139,13 +139,13 @@ function getAllPostsById(int $userId, PDO $pdo): array
     $query = 'SELECT DISTINCT 
     posts.content, posts.date, posts.image, posts.author_id, users.name, users.avatar, users.id
     FROM posts
-    INNER JOIN followers 
-    ON posts.author_id = followers.follow_id
-    OR posts.author_id = followers.user_id
+    LEFT JOIN followers 
+    ON posts.author_id = followers.user_id
+    OR posts.author_id = followers.follow_id
     INNER JOIN users 
     ON posts.author_id = users.id
-    WHERE posts.author_id = :userId
-    OR followers.user_id = :userId
+    WHERE followers.user_id = :userId
+    OR posts.author_id = :userId
     ORDER BY date DESC';
     $statement = $pdo->prepare($query);
     if (!$statement) {
