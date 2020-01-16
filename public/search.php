@@ -29,6 +29,7 @@
                      <p><?= $searchResult['name'] ?></p>
                      <form action="/app/users/follow.php" method="post">
                          <input type="hidden" name="followId" value="<?=$searchResult['id']?>">
+                         <input type="hidden" name="searchString" value="<?=$_GET['search']?>">
                          <button type="submit">
                              <?=isFollowing($searchResult['id'], $pdo) ? 'Unfollow' : 'Follow' ?>
                          </button>

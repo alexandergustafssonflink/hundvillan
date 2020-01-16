@@ -118,9 +118,10 @@ function isFollowing(int $followId, PDO $pdo): bool
     $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
     $statement->bindParam(':followId', $followId, PDO::PARAM_INT);
     $statement->execute();
-    $isFollowing = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $isFollowing = $statement->fetch(PDO::FETCH_ASSOC);
     if ($isFollowing) {
         return true;
     }
     return false;
 }
+

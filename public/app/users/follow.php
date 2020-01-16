@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['followId'])) {
+if (isset($_POST['followId'], $_POST['searchString'])) {
     $userId = (int) $_SESSION['user']['id'];
     $followId = (int) $_POST['followId'];
 
@@ -26,4 +26,4 @@ if (isset($_POST['followId'])) {
         ]);
     }
 }
-redirect('/search.php');
+redirect('/search.php?search='.$_POST['searchString']);
