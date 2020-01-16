@@ -1,4 +1,4 @@
-# Hundvillan (A social media for dogs)
+# Hundvillan (A social media platform for dogs)
 
 Assignment in programming class @ Yrgo.
 
