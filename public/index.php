@@ -1,15 +1,4 @@
-<?php require __DIR__ . '/views/header.php';
-
-
-$statement = $pdo->prepare('SELECT posts.*, users.name, users.avatar FROM posts INNER JOIN users ON posts.author_id = users.id ORDER BY date DESC');
-if (!$statement) {
-    die(var_dump($pdo->errorInfo()));
-}
-$statement->execute();
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-?>
+<?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
     <!-- IF USER IS NOT LOGGED IN, DISPLAY BELOW.  -->
@@ -50,6 +39,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     <!-- IF USER IS LOGGED IN, DISPLAY BELOW.  -->
     <?php if (isset($_SESSION['user'])) : ?>
         <?php $user = $_SESSION['user']; ?>
+        <?php $posts = getAllPostsById($user['id'], $pdo) ?>
         <article class="main">
 
             <h2> Latest posts </h2>
