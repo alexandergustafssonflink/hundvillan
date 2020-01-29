@@ -33,8 +33,6 @@ Assignment in programming class @ Yrgo.
 
 ## Contributions by [Jesper Lundqvist](https://github.com/jesperlndqvst)
 
-https://github.com/alexandergustafssonflink/hundvillan/tree/pr/1
-
 -   Added search function.
 -   Added follow-function.
 
