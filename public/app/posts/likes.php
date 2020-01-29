@@ -21,6 +21,7 @@ if (isset($_POST['postId'])) {
         $statement->execute();
         redirect(('/index.php'));
     } else {
+
         $sql = "INSERT INTO post_likes (user_id, post_id) VALUES (:userId, :postId)";
         $statement = $pdo->prepare($sql);
         if (!$statement) {

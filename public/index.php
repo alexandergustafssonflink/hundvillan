@@ -46,6 +46,7 @@
 
             <?php
             foreach ($posts as $post) : ?>
+                <?php print_r($post) ?>
                 <div class="post">
                     <div class="postUserSection">
                         <h7 class="postUserName"> <?php echo $post['name']; ?></h7>

@@ -31,6 +31,15 @@ Assignment in programming class @ Yrgo.
 -   [Maja Alin](https://github.com/majaalin)
 -   [Mikeala Lundsgård](https://github.com/mikaelaalu)
 
+## Contributions by [Jesper Lundqvist](https://github.com/jesperlndqvst)
+
+https://github.com/alexandergustafssonflink/hundvillan/tree/pr/1
+
+-   Added search function.
+-   Added follow-function.
+
+Cheers for that.
+
 ## Code Review
 
 by [Maja Alin](https://github.com/majaalin)
